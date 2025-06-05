@@ -25,8 +25,9 @@ func main() {
 	taskRepo := redis.NewTaskRepository(redisClient)
 
 	getTasksUseCase := task.NewGetTasksUseCase(taskRepo)
+	createTaskUsecase := task.NewCreateTask(taskRepo)
 
-	taskHandlers := handlers.NewTaskHandler(getTasksUseCase)
+	taskHandlers := handlers.NewTaskHandler(getTasksUseCase, createTaskUsecase)
 
 	r := server.NewRouter(taskHandlers)
 

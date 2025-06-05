@@ -8,3 +8,8 @@ type TaskDTO struct {
 type GetTasksResponse struct {
 	Tasks []TaskDTO
 }
+
+type CreateTaskResponse struct {
+	ID    int    `json:"id"`
+	Title string `json:"title"`
+}
